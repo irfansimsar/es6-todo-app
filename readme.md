@@ -1,6 +1,6 @@
 # ES6 To Do List App 📝
 
-Another To Do List App to try ES6 Features and for fun.
+Another To Do List App to try ES6 Features and for fun. [Live Demo](https://irfansimsar.github.io/es6-todo-app)
 
 ## Preview
 ![Demo](https://irfansimsar.github.io/es6-todo-app/assets/es6-todo-app.gif "Demo")
