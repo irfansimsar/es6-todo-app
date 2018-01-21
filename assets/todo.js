@@ -34,19 +34,19 @@ const methods = {
       id: `todo-${Date.now()}`,
       title: input.value,
       status: 'new'
-    })
-    input.value = ''
+    });
+    input.value = '';
     
-    methods.renderTodos()
+    methods.renderTodos();
   },
   removeItem: (id) => {
-    todos = todos.filter(todo => todo.id !== id)
-    methods.renderTodos()
+    todos = todos.filter(todo => todo.id !== id);
+    methods.renderTodos();
   },
   checkAsDone: (id) => {
-    let checkedTodo = todos.find(todo => todo.id === id)
-    checkedTodo.status = 'done'
-    methods.renderTodos()
+    let checkedTodo = todos.find(todo => todo.id === id);
+    checkedTodo.status = 'done';
+    methods.renderTodos();
   }
 }
 
