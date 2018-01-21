@@ -1,0 +1,63 @@
+:root {
+  --color-jungle-green: #26A69A;
+  --base-font-family: Arial, sans-serif;
+  --base-font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: var(--base-font-size);
+  font-family: var(--base-font-family);
+  background: var(--color-jungle-green);
+}
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  font-size: var(--base-font-size);
+  height: 50px;
+  line-height: 50px;
+  padding-left: 10px;
+}
+
+input[type="text"]:focus {
+  outline: 5px solid #E0F2F1;
+}
+
+.todos {
+  margin: 20px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.todos li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #fff;
+  line-height: 30px;
+  color: var(--color-jungle-green);
+}
+
+.todos li.done {
+  text-decoration: line-through;
+  opacity: .3;
+}
+
+.todos li .buttons {
+  float: right;
+}
+
+.todos li .buttons button{
+  font-size: 20px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+}
