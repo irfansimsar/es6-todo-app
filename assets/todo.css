@@ -1,5 +1,6 @@
 :root {
   --color-jungle-green: #26A69A;
+  --color-porcelain: #FCFDFD;
   --base-font-family: Arial, sans-serif;
   --base-font-size: 16px;
 }
@@ -20,6 +21,12 @@ body {
   padding: 20px;
 }
 
+h1 {
+  font-size: calc(var(--base-font-size) * 3);
+  color: var(--color-porcelain);
+  text-align: center;
+}
+
 input[type="text"] {
   width: 100%;
   font-size: var(--base-font-size);
@@ -29,7 +36,8 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  outline: 5px solid #E0F2F1;
+  background: rgba(255, 255, 255, .8);
+  outline: 5px solid var(--color-porcelain);;
 }
 
 .todos {
@@ -41,8 +49,8 @@ input[type="text"]:focus {
 .todos li {
   padding: 10px;
   margin-bottom: 10px;
-  background: #fff;
   line-height: 30px;
+  background: var(--color-porcelain);;
   color: var(--color-jungle-green);
 }
 
@@ -61,3 +69,4 @@ input[type="text"]:focus {
   width: 30px;
   height: 30px;
 }
+

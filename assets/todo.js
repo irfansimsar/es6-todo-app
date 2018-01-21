@@ -1,6 +1,7 @@
 let todos = window.localStorage.getItem('todoListTasks') ? JSON.parse(window.localStorage.getItem('todoListTasks')) : [];
 const $app = document.querySelector('.app');
 const $inputHtml = '<input type="text" placeholder="please enter the task..." />';
+const $titleHtml = '<h1>📝 To Do App</h1>';
 
 const methods = {
   renderTodos: () => {
@@ -20,7 +21,11 @@ const methods = {
       </ul>
     `;
 
-    $app.innerHTML = `${$inputHtml} ${todos.length > 0 ? $todos : ''}`;
+    $app.innerHTML = `
+      ${$titleHtml}
+      ${$inputHtml}
+      ${todos.length > 0 ? $todos : ''}
+    `;
 
     let input = document.querySelector('input[type="text"]');
     input.focus();
