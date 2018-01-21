@@ -4,6 +4,8 @@ const $inputHtml = '<input type="text" placeholder="please enter the task..." />
 
 const methods = {
   renderTodos: () => {
+    todos.sort((a, b) => a.status > b.status ? -1 : 1 );
+
     let $todos = `
       <ul class="todos">
         ${todos.map(todo => `
