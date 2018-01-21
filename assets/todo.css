@@ -70,3 +70,12 @@ input[type="text"]:focus {
   height: 30px;
 }
 
+@media (max-width: 480px) {
+  .app {
+    padding: 5px;
+  }
+
+  h1 {
+    font-size: calc(var(--base-font-size) * 2);
+  }
+}
