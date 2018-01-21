@@ -48,7 +48,7 @@ input[type="text"]:focus {
 
 .todos li.done {
   text-decoration: line-through;
-  opacity: .3;
+  opacity: .7;
 }
 
 .todos li .buttons {
