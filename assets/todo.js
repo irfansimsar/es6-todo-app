@@ -1,4 +1,4 @@
-let todos = [];
+let todos = window.localStorage.getItem('todoListTasks') ? JSON.parse(window.localStorage.getItem('todoListTasks')) : [];
 const $app = document.querySelector('.app');
 const $inputHtml = '<input type="text" placeholder="please enter the task..." />';
 
@@ -28,6 +28,13 @@ const methods = {
       if (e.keyCode === 13) methods.addItem();
     });
   },
+  updateLocalStorage: () => {
+    window.localStorage.setItem('todoListTasks', JSON.stringify(todos));
+  },
+  updateTodos: () => {
+    methods.updateLocalStorage();
+    methods.renderTodos();
+  },
   addItem: () => {
     let input = document.querySelector('input[type="text"]')
     todos.push({
@@ -37,16 +44,16 @@ const methods = {
     });
     input.value = '';
     
-    methods.renderTodos();
+    methods.updateTodos();
   },
   removeItem: (id) => {
     todos = todos.filter(todo => todo.id !== id);
-    methods.renderTodos();
+    methods.updateTodos();
   },
   checkAsDone: (id) => {
     let checkedTodo = todos.find(todo => todo.id === id);
     checkedTodo.status = 'done';
-    methods.renderTodos();
+    methods.updateTodos();
   }
 }
 
