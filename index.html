@@ -10,7 +10,15 @@
   <link rel="stylesheet" href="assets/todo.css">
 </head>
 <body>
-  <div class="app"></div>
+  <div class="app">
+    <noscript>
+      <div class="fallback">
+        <h2>This application needs to javascript to work!<h2>
+        <h3>Please enable javascript on your browser...</h3>
+      </div>
+    </noscript>
+  </div>
+
   <script type="text/javascript" src="assets/todo.js"></script>
   <script>
 	if ('serviceWorker' in navigator) {

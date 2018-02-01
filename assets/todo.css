@@ -21,6 +21,12 @@ body {
   padding: 20px;
 }
 
+.fallback {
+  color: #fff;
+  text-align: center;
+  margin-top: 100px;
+}
+
 h1 {
   font-size: calc(var(--base-font-size) * 3);
   color: var(--color-porcelain);
