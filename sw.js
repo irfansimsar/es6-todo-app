@@ -1,10 +1,10 @@
 const cacheName 	= 'app-shell';
 const filesToCache 	= [
-	'/assets/todo.css',
-	'/assets/todo.js',
-	'/index.html',
-	'/sw.js',
-	'/'
+	'/es6-todo-app/assets/todo.css',
+	'/es6-todo-app/assets/todo.js',
+	'/es6-todo-app/index.html',
+	'/es6-todo-app/sw.js',
+	'/es6-todo-app/'
 ];
 
 self.addEventListener('install', function(e) {
