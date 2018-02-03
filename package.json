@@ -1,0 +1,33 @@
+{
+  "name": "es6-todo-app",
+  "version": "1.0.0",
+  "description": "Another To Do App to try new frontEnd technologies",
+  "main": "sw.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irfansimsar/es6-todo-app.git"
+  },
+  "keywords": [
+    "javascript",
+    "es6",
+    "todolist",
+    "todoapp",
+    "pwa"
+  ],
+  "author": "irfan simsar <isimsar@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/irfansimsar/es6-todo-app/issues"
+  },
+  "homepage": "https://github.com/irfansimsar/es6-todo-app#readme",
+  "devDependencies": {
+    "jest": "^22.1.4",
+    "puppeteer": "^1.0.0"
+  }
+}
