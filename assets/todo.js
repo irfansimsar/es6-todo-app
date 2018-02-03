@@ -42,14 +42,18 @@ const methods = {
   },
   addItem: () => {
     let input = document.querySelector('input[type="text"]')
-    todos.push({
-      id: `todo-${Date.now()}`,
-      title: input.value,
-      status: 'new'
-    });
-    input.value = '';
-    
-    methods.updateTodos();
+    if (input.value.length > 2) {
+      todos.push({
+        id: `todo-${Date.now()}`,
+        title: input.value,
+        status: 'new'
+      });
+      input.value = '';
+      
+      methods.updateTodos();
+    } else {
+      methods.showError('Error, task must be at least 3 characters...');
+    }
   },
   removeItem: (id) => {
     todos = todos.filter(todo => todo.id !== id);
@@ -59,6 +63,17 @@ const methods = {
     let checkedTodo = todos.find(todo => todo.id === id);
     checkedTodo.status = 'done';
     methods.updateTodos();
+  },
+  showError: (errorText) => {
+    const $input = document.querySelector('input[type="text"]');
+    let $errorHtml = document.createElement('div');
+    $errorHtml.className = 'error';
+    $errorHtml.innerHTML = errorText;
+    $input.parentNode.insertBefore($errorHtml, $input.nextSibling);
+
+    setTimeout(() => {
+      $errorHtml.remove();
+    }, 800);
   }
 }
 

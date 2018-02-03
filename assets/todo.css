@@ -1,6 +1,8 @@
 :root {
   --color-jungle-green: #26A69A;
   --color-porcelain: #FCFDFD;
+  --color-bizarre: #F2DEDE;
+  --color-apple-blossom: #A94442;
   --base-font-family: Arial, sans-serif;
   --base-font-size: 16px;
 }
@@ -74,6 +76,13 @@ input[type="text"]:focus {
   padding: 0;
   width: 30px;
   height: 30px;
+}
+
+.error {
+  background: var(--color-bizarre);
+  color: var(--color-apple-blossom);
+  padding: 10px;
+  margin-top: 20px;
 }
 
 @media (max-width: 480px) {
