@@ -13,8 +13,8 @@ const methods = {
           <li ${todo.status === 'done' ? 'class="done";' : ''}>
             ${todo.title}
             <div class="buttons">
-              ${todo.status === 'new' ? `<button onclick="methods.checkAsDone('${todo.id}')">👌</button>` : ''}
-              <button onclick="methods.removeItem('${todo.id}')">👎</button>
+              ${todo.status === 'new' ? `<button class="btn-done" onclick="methods.checkAsDone('${todo.id}')">👌</button>` : ''}
+              <button class="btn-delete" onclick="methods.removeItem('${todo.id}')">👎</button>
             </div>
           </li>
         `).join('')}

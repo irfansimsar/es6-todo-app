@@ -46,3 +46,24 @@ describe('Add new task', () => {
     	expect(afterTodoCount).toBe(beforeTodoCount);
 	});
 });
+
+describe('Mark a task as completed', () => {
+	test('user can mark a task as completed', async () => {
+		const btnDone = await page.$('.todos li .btn-done');
+		await btnDone.click();
+		const doneCount = await page.$$eval('.todos li.done', li => li.length);
+		
+    	expect(doneCount).toBe(1);
+	});
+});
+
+
+describe('Delete a task', () => {
+	test('user can delete a task', async () => {
+		const btnDone = await page.$('.todos li .btn-delete');
+		await btnDone.click();
+		const afterTodoCount = await page.$$eval('.todos li', li => li.length);
+
+    	expect(afterTodoCount).toBe(0);
+	});
+});
