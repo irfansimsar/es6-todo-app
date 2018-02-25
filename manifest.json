@@ -1,7 +1,7 @@
 {
   "name": "ES6 To-Do App",
   "short_name": "ES6 To-Do App",
-  "start_url": "/es6-todo-app//index.html",
+  "start_url": "/es6-todo-app/index.html",
   "display": "standalone",
   "description": "Another To Do List App to try ES6 Features and for fun",
   "background_color": "#26A69A",
