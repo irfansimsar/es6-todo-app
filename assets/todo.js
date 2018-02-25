@@ -4,6 +4,18 @@ const $inputHtml = '<input type="text" placeholder="please enter the task..." />
 const $titleHtml = '<h1>📝 To Do App</h1>';
 
 const methods = {
+  initAppInstallBanner: () => {
+    if (window.deferredPromt) {
+      alert('*here');
+      deferredPromt.userChoice.then(choiceResult => {
+        if (choiceResult.outcome === 'dismissed') {
+          console.log('User cancelled installation');
+        } else {
+          console.log('User added to home screen');
+        }
+      });
+    }
+  },
   renderTodos: () => {
     todos.sort((a, b) => a.status > b.status ? -1 : 1 );
 
@@ -78,3 +90,7 @@ const methods = {
 }
 
 methods.renderTodos();
+
+setTimeout(() => {
+  methods.initAppInstallBanner();
+}, 1000)
