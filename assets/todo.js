@@ -1,7 +1,10 @@
 let todos = window.localStorage.getItem('todoListTasks') ? JSON.parse(window.localStorage.getItem('todoListTasks')) : [];
 const $app = document.querySelector('.app');
-const $inputHtml = '<input type="text" placeholder="please enter the task..." />';
-const $titleHtml = '<h1>📝 To Do App</h1>';
+const $titleComponent = '<h1>📝 To Do App</h1>';
+const $inputComponent = `<div class="input-wrapper">
+  <input type="text" placeholder="Please enter the task..." />
+  <button type="button" onclick="methods.addItem()"><i class="icon">+</i></button>
+</div>`;
 
 const methods = {
   initAppInstallBanner: () => {
@@ -22,11 +25,11 @@ const methods = {
     let $todos = `
       <ul class="todos">
         ${todos.map(todo => `
-          <li ${todo.status === 'done' ? 'class="done";' : ''}>
+          <li ${todo.status === 'done' ? 'class="done"' : ''}>
             ${todo.title}
             <div class="buttons">
-              ${todo.status === 'new' ? `<button class="btn-done" onclick="methods.checkAsDone('${todo.id}')">👌</button>` : ''}
-              <button class="btn-delete" onclick="methods.removeItem('${todo.id}')">👎</button>
+            ${todo.status === 'done' ? `<button class="btn-delete" onclick="methods.removeItem('${todo.id}')"><i class="icon">×</i></button>` : ''}
+            <button class="btn-done" onclick="methods.toggleItem('${todo.id}')"></button>
             </div>
           </li>
         `).join('')}
@@ -34,8 +37,8 @@ const methods = {
     `;
 
     $app.innerHTML = `
-      ${$titleHtml}
-      ${$inputHtml}
+      ${$titleComponent}
+      ${$inputComponent}
       ${todos.length > 0 ? $todos : ''}
     `;
 
@@ -71,9 +74,9 @@ const methods = {
     todos = todos.filter(todo => todo.id !== id);
     methods.updateTodos();
   },
-  checkAsDone: (id) => {
+  toggleItem: (id) => {
     let checkedTodo = todos.find(todo => todo.id === id);
-    checkedTodo.status = 'done';
+    checkedTodo.status = checkedTodo.status === 'done' ? 'new' : 'done';
     methods.updateTodos();
   },
   showError: (errorText) => {

@@ -1,11 +1,36 @@
 :root {
-  --color-jungle-green: #26A69A;
-  --color-porcelain: #FCFDFD;
-  --color-bizarre: #F2DEDE;
+  --color-white: #fff;
+  --color-carrara: #f0efe9;
+  --color-shuttle-gray: #C7C5BC;
+  --color-french-gray: #bdc0ca;
+  --color-bright-gray: #3e434f;
   --color-apple-blossom: #A94442;
   --base-font-family: Arial, sans-serif;
   --base-font-size: 16px;
+  --todo-font-family: 'Comfortaa', cursive;
+  --todo-font-size: 20px;
 }
+
+::-webkit-input-placeholder {
+  color: var(--color-french-gray);
+}
+
+:-moz-placeholder {
+  color: var(--color-french-gray);
+}
+
+::-moz-placeholder {
+  color: var(--color-french-gray);
+}
+
+:-ms-input-placeholder {
+  color: var(--color-french-gray);
+}
+
+::-ms-input-placeholder {
+  color: var(--color-french-gray);
+}
+
 
 * {
   box-sizing: border-box;
@@ -14,13 +39,20 @@
 body {
   font-size: var(--base-font-size);
   font-family: var(--base-font-family);
-  background: var(--color-jungle-green);
+  background: var(--color-carrara);
+  line-height: 1;
+  padding: 50px;
 }
 
 .app {
   max-width: 600px;
+  height: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 80px 40px 100px;
+  background: var(--color-white);
+  -webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.22);
+  -moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.22);
+  box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.22);
 }
 
 .fallback {
@@ -31,21 +63,56 @@ body {
 
 h1 {
   font-size: calc(var(--base-font-size) * 3);
-  color: var(--color-porcelain);
+  color: var(--color-bright-gray);
   text-align: center;
+  margin-top: 0;
 }
 
-input[type="text"] {
+.input-wrapper {
+  position: relative;
+  padding: 20px 0;
+}
+
+.input-wrapper button {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-french-gray);
+  color: var(--color-white);
+  transform: translate(0, -60%);
+}
+
+.input-wrapper button .icon {
+  font-style: normal;
+  position: absolute;
+  left: 10px;
+  top: 1px;
+}
+
+.input-wrapper input[type="text"] {
   width: 100%;
+  font-family: var(--todo-font-family);
   font-size: var(--base-font-size);
   height: 50px;
   line-height: 50px;
-  padding-left: 10px;
+  padding: 0 40px 0 10px;
+  border: none;
+  border-bottom: 3px dashed var(--color-french-gray);
+  color: var(--color-bright-gray);
+  opacity: .6;
 }
 
-input[type="text"]:focus {
+.input-wrapper input[type="text"]:focus {
   background: rgba(255, 255, 255, .8);
-  outline: 5px solid var(--color-porcelain);;
+  border-color: var(--color-shuttle-gray);
+  outline: none;
+  opacity: 1;
 }
 
 .todos {
@@ -55,11 +122,44 @@ input[type="text"]:focus {
 }
 
 .todos li {
-  padding: 10px;
+  font-family: var(--todo-font-family);
+  font-size: var(--todo-font-size);
+  padding: 10px 80px 10px 10px;
   margin-bottom: 10px;
   line-height: 30px;
-  background: var(--color-porcelain);;
-  color: var(--color-jungle-green);
+  color: var(--color-bright-gray);
+  position: relative;
+}
+
+.todos li .buttons {
+  position: absolute;
+  top: 12px;
+  right: 0;
+}
+
+.todos li .buttons button{
+  width: 34px;
+  height: 34px;
+  font-size: 20px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: 3px solid var(--color-french-gray);
+  border-radius: 50%;
+  position: relative;
+}
+
+.todos li .buttons button.btn-delete {
+  border-color: var(--color-apple-blossom);
+}
+
+.todos li .buttons button.btn-delete .icon {
+  font-style: normal;
+  color: var(--color-apple-blossom);
+  position: absolute;
+  top: -1px;
+  left: 6px;
 }
 
 .todos li.done {
@@ -67,15 +167,16 @@ input[type="text"]:focus {
   opacity: .7;
 }
 
-.todos li .buttons {
-  float: right;
-}
-
-.todos li .buttons button{
-  font-size: 20px;
-  padding: 0;
-  width: 30px;
-  height: 30px;
+.todos li.done .buttons .btn-done::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: var(--color-french-gray);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
 }
 
 .error {
@@ -86,11 +187,28 @@ input[type="text"]:focus {
 }
 
 @media (max-width: 480px) {
-  .app {
+  body {
     padding: 5px;
+  }
+  
+  .app {
+    padding: 30px 5px 40px;
   }
 
   h1 {
     font-size: calc(var(--base-font-size) * 2);
+  }
+
+  .todos li {
+    font-size: calc(var(--todo-font-size) / 1.3);
+    line-height: 20px;
+  }
+
+  .todos li .buttons {
+    top: 6px;
+  }
+
+  .todos li .buttons button.btn-delete .icon {
+    top: -2px;
   }
 }
