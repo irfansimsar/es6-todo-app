@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/irfansimsar/es6-todo-app#readme",
   "devDependencies": {
-    "jest": "^22.1.4",
-    "puppeteer": "^1.0.0"
+    "jest": "^24.1.0",
+    "puppeteer": "^1.13.0"
   }
 }
