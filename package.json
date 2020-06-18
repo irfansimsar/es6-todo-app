@@ -1,6 +1,6 @@
 {
   "name": "es6-todo-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Another To Do App to try new frontEnd technologies",
   "main": "sw.js",
   "directories": {
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/irfansimsar/es6-todo-app#readme",
   "devDependencies": {
-    "jest": "^24.1.0",
-    "puppeteer": "^1.13.0"
+    "jest": "^24.9.0",
+    "puppeteer": "^1.20.0"
   }
 }
